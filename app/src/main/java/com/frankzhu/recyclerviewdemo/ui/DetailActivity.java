@@ -7,6 +7,7 @@ import android.util.Log;
 import com.frankzhu.recyclerviewdemo.R;
 import com.frankzhu.recyclerviewdemo.fragment.AnimFragment;
 import com.frankzhu.recyclerviewdemo.fragment.FullyExpandedFragment;
+import com.frankzhu.recyclerviewdemo.fragment.MainApplistFragment;
 import com.frankzhu.recyclerviewdemo.fragment.MultipleFragment;
 import com.frankzhu.recyclerviewdemo.fragment.MultipleHeaderBottomFragment;
 import com.frankzhu.recyclerviewdemo.fragment.NormalFragment;
@@ -35,9 +36,13 @@ public class DetailActivity extends AppCompatActivity {
         } else if (index == 2) {
             updateNormalFragment(NormalFragment.TYPE_STAGGERED_GRID_LAYOUT);
         } else if (index == 3) {
-            updateMultipleFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
+//            updateMultipleFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, MainApplistFragment.newInstance())
+                    .commit();
+
         } else if (index == 4) {
-            updateMultipleFragment(MultipleFragment.TYPE_GRID_LAYOUT);
+            updateMultipleFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
         } else if (index == 5) {
             updateMultipleHeaderFragment(MultipleFragment.TYPE_LINEAR_LAYOUT);
         } else if (index == 6) {
